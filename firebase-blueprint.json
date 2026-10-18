@@ -1,0 +1,50 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "Player profile and game progress",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string", "maxLength": 128 },
+        "displayName": { "type": "string", "maxLength": 64 },
+        "photoURL": { "type": "string", "maxLength": 512 },
+        "totalScore": { "type": "number" },
+        "ringsCollected": { "type": "number" },
+        "eggsCollected": { "type": "number" },
+        "highestLevel": { "type": "number" },
+        "unlockedBalls": { "type": "array" },
+        "currentBall": { "type": "string", "maxLength": 32 },
+        "createdAt": { "type": "string" },
+        "lastActive": { "type": "string" }
+      },
+      "required": ["userId", "displayName"]
+    },
+    "LeaderboardScore": {
+      "title": "LeaderboardScore",
+      "description": "High score leaderboard entry",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string", "maxLength": 128 },
+        "displayName": { "type": "string", "maxLength": 64 },
+        "photoURL": { "type": "string", "maxLength": 512 },
+        "level": { "type": "number" },
+        "score": { "type": "number" },
+        "timeSeconds": { "type": "number" },
+        "rings": { "type": "number" },
+        "stars": { "type": "number" },
+        "completedAt": { "type": "string" }
+      },
+      "required": ["userId", "displayName", "score", "level"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "UserProfile",
+      "description": "User profile with unlocked items and progress"
+    },
+    "/leaderboard/{scoreId}": {
+      "schema": "LeaderboardScore",
+      "description": "Leaderboard scores across all players"
+    }
+  }
+}

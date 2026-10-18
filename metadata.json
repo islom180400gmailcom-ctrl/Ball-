@@ -1,0 +1,6 @@
+{
+  "name": "Bounce Tales",
+  "description": "Classic retro Bounce Tales platformer game with authentic bounce physics, golden rings, checkpoints, mobile touch controls & keyboard support, and cloud scores.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
